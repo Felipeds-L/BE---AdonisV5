@@ -18,6 +18,8 @@
 |
 */
 
+import User from 'App/Models/User'
+import Hash from '@ioc:Adonis/Core/Hash'
 import Route from '@ioc:Adonis/Core/Route'
 import Database from '@ioc:Adonis/Lucid/Database'
 
@@ -28,3 +30,6 @@ Route.get('/', async () => {
 Route.get('/users', async() => {
   return Database.from('users').select('*')
 })
+
+Route.post('login', 'AuthController.login')
+
